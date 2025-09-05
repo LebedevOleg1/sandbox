@@ -3,7 +3,7 @@ import requests
 import uuid
 import time
 
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "http://app:8000"
 
 @pytest.fixture(scope='module')
 def user_data():
@@ -47,7 +47,7 @@ def test_task_status_and_result():
         if data['status'] == 'ready':
             break
          
-        assert data['status'] == 'in_progress', f'undefined status: {data['status']}!'
+        assert data['status'] == 'in_progress', f'undefined status: {data["status"]}!'
         time.sleep(1)
 
     response = requests.get(result_url)
